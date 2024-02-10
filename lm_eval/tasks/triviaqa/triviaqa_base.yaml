@@ -1,0 +1,20 @@
+include: default.yaml
+
+dataset_path: arrow
+dataset_kwargs:
+  data_files:
+    train: /home/disrael/positional-bias/debias-llm/data/trivia_qa_meta_test.hf/data-00000-of-00001.arrow
+    validation: /home/disrael/positional-bias/debias-llm/data/trivia_qa_test.hf/data-00000-of-00001.arrow
+
+task: triviaqa_base
+description: "Answer these questions:\n\n <RESTART>"
+fewshot_delimiter: "\n\n <RESTART>"
+
+generation_kwargs:
+  until:
+    - "\n"
+    - "."
+    - ","
+  do_sample: false
+  temperature: 0.0
+  max_new_tokens: 30

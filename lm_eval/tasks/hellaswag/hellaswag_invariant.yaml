@@ -1,0 +1,12 @@
+include: hellaswag.yaml
+
+dataset_path: arrow
+dataset_kwargs:
+  data_files:
+    train: /home/disrael/positional-bias/debias-llm/data/hellaswag_meta_test.hf/data-00000-of-00001.arrow
+    validation: /home/disrael/positional-bias/debias-llm/data/hellaswag_test.hf/data-00000-of-00001.arrow
+
+task: hellaswag_invariant
+description: "<RESTART>"
+fewshot_delimiter: "\n\n <RESTART>"
+
